@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hello, this is a test</title>
+<style>
+button {
+  text-align: center;
+  margin: 0 auto;
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: blue;
+}
+p {
+  text-align: center;
+  margin: 0 auto;
+  position: fixed;
+  top: 50%;
+  left:50%;
+}
+</style>
+<script>
+function animateText() {
+  var words = ["Hello", "this", "is", "a", "test"];
+  var i = 0;
+  var interval = setInterval(function() {
+    if (i < words.length) {
+      // Remove the previous word from the text element
+      var text = document.getElementById("text").innerHTML;
+      var previousWord = words[i - 1];
+      text = text.replace(previousWord, "");
+      document.getElementById("text").innerHTML = text + words[i];
+      i++;
+    } else {
+      clearInterval(interval);
+    }
+  }, 500);
+}
+</script>
+</head>
+<body>
+<button onclick="animateText()">Start</button>
+<p id="text"></p>
+</body>
+</html>
